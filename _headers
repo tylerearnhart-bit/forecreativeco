@@ -1,0 +1,11 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+/og-image.png
+  Cache-Control: public, max-age=604800
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=604800

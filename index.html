@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORE Creative Co. — Brand, Web & Marketing Studio</title>
+<meta name="description" content="FORE Creative Co. is a marketing and web development consultancy. We build websites, brand identity, graphic design, and marketing strategy for companies that refuse to blend in.">
+<link rel="canonical" href="https://goforecreative.com/">
+<meta name="theme-color" content="#08170F">
+<meta name="robots" content="index, follow">
+
+<!-- social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://goforecreative.com/">
+<meta property="og:site_name" content="FORE Creative Co.">
+<meta property="og:title" content="FORE Creative Co. — Brand, Web &amp; Marketing Studio">
+<meta property="og:description" content="We design the brand, build the site, and run the strategy that fills it — all under one roof.">
+<meta property="og:image" content="https://goforecreative.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FORE Creative Co. — Brand, Web &amp; Marketing Studio">
+<meta name="twitter:description" content="We design the brand, build the site, and run the strategy that fills it — all under one roof.">
+<meta name="twitter:image" content="https://goforecreative.com/og-image.png">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Crect x='13.6' y='31' width='4.8' height='8' rx='1.6' fill='%23E8451F'/%3E%3Cpath d='M16 1.6 L23.2 13.4 H8.8 Z' fill='%23FF5F1F'/%3E%3Cpath d='M16 8.4 L26 22 H6 Z' fill='%23FF5F1F'/%3E%3Cpath d='M16 15.8 L29.2 32 H2.8 Z' fill='%23FF5F1F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   FORE CREATIVE CO. — design system
+   ============================================================ */
+:root{
+  --ink:#08170F;
+  --forest:#0E2C1E;
+  --moss:#143D28;
+  --green:#1F8A55;
+  --lime:#8FD14F;
+  --orange:#FF5F1F;
+  --clay:#E8451F;
+  --amber:#FFB020;
+  --cream:#F6F2E7;
+  --paper:#FFFDF7;
+  --stone:#CFC8B5;
+
+  --f-display:"Bricolage Grotesque","Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --f-serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --f-body:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,sans-serif;
+
+  --gut:clamp(20px,5vw,80px);
+  --radius:22px;
+  --ease:cubic-bezier(.19,1,.22,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ink);color:var(--cream);
+  font-family:var(--f-body);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+::selection{background:var(--orange);color:#fff}
+
+/* grain + vignette overlay */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
+  opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.wrap{max-width:1320px;margin:0 auto;padding:0 var(--gut)}
+.eyebrow{
+  font-family:var(--f-body);font-size:12px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--lime);
+  display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--orange)}
+.eyebrow.dark{color:var(--moss)}
+.eyebrow.dark::before{background:var(--clay)}
+
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:800;line-height:.94;letter-spacing:-.035em;margin:0}
+h2{font-size:clamp(2.4rem,6.2vw,5.2rem)}
+h3{font-size:clamp(1.4rem,2.4vw,2rem);letter-spacing:-.02em;line-height:1.05}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:12px;position:relative;
+  padding:17px 30px;border-radius:100px;border:0;
+  font-weight:700;font-size:15px;letter-spacing:-.01em;
+  background:var(--orange);color:#fff;overflow:hidden;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+  box-shadow:0 10px 30px -10px rgba(255,95,31,.6);
+}
+.btn span{position:relative;z-index:2}
+.btn::before{
+  content:"";position:absolute;inset:0;z-index:1;background:var(--lime);
+  transform:translateY(101%);transition:transform .5s var(--ease);
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px -12px rgba(143,209,79,.55)}
+.btn:hover::before{transform:translateY(0)}
+.btn:hover span{color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--cream);box-shadow:inset 0 0 0 1.5px rgba(246,242,231,.28)}
+.btn.ghost::before{background:var(--cream)}
+.btn.ghost:hover span{color:var(--ink)}
+.btn.dark{background:var(--ink);box-shadow:0 10px 30px -12px rgba(8,23,15,.5)}
+.arrow{width:16px;height:16px;flex:0 0 16px}
+
+/* ---------- nav ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  transition:background .4s var(--ease),backdrop-filter .4s,box-shadow .4s,padding .4s var(--ease);
+  padding:22px 0;
+}
+header.stuck{
+  background:rgba(8,23,15,.82);backdrop-filter:blur(18px) saturate(1.4);
+  padding:12px 0;box-shadow:0 1px 0 rgba(246,242,231,.08);
+}
+.navbar{display:flex;align-items:center;justify-content:space-between;gap:28px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:23px;letter-spacing:-.04em}
+.mark{
+  width:30px;height:38px;flex:0 0 30px;display:block;
+  transition:transform .5s var(--ease);
+}
+.logo:hover .mark{transform:translateY(-2px) scale(1.04)}
+.logo .wm{display:flex;flex-direction:column;justify-content:center}
+.logo .wm b{display:block;font-weight:800;line-height:.86}
+.logo small{
+  display:block;font-family:var(--f-body);font-weight:700;font-size:8.5px;
+  letter-spacing:.155em;color:var(--stone);text-transform:uppercase;
+  line-height:1;margin-top:3px;
+}
+nav.links{display:flex;gap:34px;align-items:center}
+nav.links a{font-size:14.5px;font-weight:500;color:rgba(246,242,231,.72);position:relative;padding:4px 0;transition:color .3s}
+nav.links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--orange);transition:width .35s var(--ease)}
+nav.links a:hover{color:var(--cream)}
+nav.links a:hover::after{width:100%}
+.nav-cta{padding:13px 24px;font-size:14px}
+.burger{display:none;width:44px;height:44px;border-radius:12px;background:rgba(246,242,231,.08);border:0;place-items:center}
+.burger i{display:block;width:18px;height:2px;background:var(--cream);position:relative}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--cream)}
+.burger i::before{top:-6px}.burger i::after{top:6px}
+.mobile-menu{
+  position:fixed;inset:0;z-index:999;background:var(--forest);
+  display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 var(--gut);
+  transform:translateY(-100%);transition:transform .6s var(--ease);
+}
+.mobile-menu.open{transform:translateY(0)}
+.mobile-menu a{font-family:var(--f-display);font-weight:800;font-size:clamp(2rem,10vw,3.4rem);letter-spacing:-.04em;padding:8px 0;border-bottom:1px solid rgba(246,242,231,.1)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:190px 0 90px;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;pointer-events:none}
+.b1{width:620px;height:620px;background:var(--green);top:-190px;right:-140px;animation:drift 22s ease-in-out infinite}
+.b2{width:420px;height:420px;background:var(--orange);bottom:-160px;left:-110px;opacity:.4;animation:drift 28s ease-in-out infinite reverse}
+.b3{width:300px;height:300px;background:var(--lime);top:44%;left:52%;opacity:.16;animation:drift 19s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-60px,50px) scale(1.14)}66%{transform:translate(50px,-40px) scale(.92)}}
+.grid-lines{
+  position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(246,242,231,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(246,242,231,.045) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 30%,#000,transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 30%,#000,transparent 78%);
+}
+.hero-inner{position:relative;z-index:3}
+.badge{
+  display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 10px;border-radius:100px;
+  background:rgba(246,242,231,.07);box-shadow:inset 0 0 0 1px rgba(246,242,231,.14);
+  font-size:13px;font-weight:600;color:rgba(246,242,231,.85);margin-bottom:30px;
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(143,209,79,.2);animation:pulse 2.4s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(143,209,79,0)}}
+h1{font-size:clamp(3.1rem,10.4vw,9rem)}
+h1 .line{display:block;overflow:hidden}
+h1 .line>span{display:block;transform:translateY(105%);animation:rise 1s var(--ease) forwards}
+@keyframes rise{to{transform:translateY(0)}}
+h1 .line:nth-child(2)>span{animation-delay:.11s}
+h1 .line:nth-child(3)>span{animation-delay:.22s}
+.hl{position:relative;display:inline-block;color:var(--ink);padding:0 .16em;z-index:1}
+.hl::before{
+  content:"";position:absolute;inset:6% -.02em 10%;background:var(--orange);
+  border-radius:8px;z-index:-1;transform:rotate(-1.1deg);
+}
+.hl.g::before{background:var(--lime)}
+.hero-sub{
+  max-width:560px;margin:34px 0 40px;font-size:clamp(17px,2vw,20.5px);
+  color:rgba(246,242,231,.72);line-height:1.55;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hero-foot{
+  margin-top:76px;padding-top:26px;border-top:1px solid rgba(246,242,231,.13);
+  display:flex;flex-wrap:wrap;gap:34px 60px;align-items:flex-end;justify-content:space-between;
+}
+.mini{display:flex;gap:44px;flex-wrap:wrap}
+.mini div b{display:block;font-family:var(--f-display);font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:800;letter-spacing:-.04em;line-height:1}
+.mini div b i{font-style:normal;color:var(--orange)}
+.mini div p{margin:6px 0 0;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,242,231,.5);font-weight:600}
+.scroll-hint{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,242,231,.42);display:flex;align-items:center;gap:10px;font-weight:600}
+.scroll-hint::after{content:"";width:1px;height:34px;background:linear-gradient(var(--orange),transparent)}
+
+/* ---------- hero collage ---------- */
+.collage{display:none}
+@media (min-width:1180px){
+  .collage{
+    display:block;position:absolute;z-index:4;right:var(--gut);top:150px;
+    width:400px;height:520px;
+  }
+  .tile{
+    position:absolute;border-radius:20px;overflow:hidden;
+    box-shadow:0 30px 60px -26px rgba(0,0,0,.75);
+    animation:float 9s ease-in-out infinite;
+  }
+  .t1{width:250px;height:310px;right:96px;top:0;background:var(--green);animation-delay:0s}
+  .t2{width:196px;height:196px;right:0;top:214px;background:var(--orange);animation-delay:1.4s}
+  .t3{width:168px;height:168px;right:206px;top:334px;background:var(--amber);animation-delay:2.6s}
+  .t4{width:112px;height:112px;right:322px;top:46px;background:var(--lime);animation-delay:.8s}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(-1.2deg)}}
+  .tile .lbl{
+    position:absolute;left:14px;bottom:12px;font-size:10.5px;font-weight:800;
+    letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.9);
+  }
+  .t3 .lbl,.t4 .lbl{color:rgba(8,23,15,.72)}
+  .t4 .lbl{bottom:4px}
+}
+
+/* ---------- marquee ---------- */
+.marquee{
+  background:var(--lime);color:var(--ink);padding:16px 0;overflow:hidden;
+  border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+}
+.mq-track{display:flex;gap:0;width:max-content;animation:slide 26s linear infinite}
+.marquee:hover .mq-track{animation-play-state:paused}
+.mq-track span{
+  font-family:var(--f-display);font-weight:800;font-size:clamp(15px,1.7vw,20px);
+  letter-spacing:-.02em;padding:0 26px;display:flex;align-items:center;gap:26px;white-space:nowrap;
+}
+.mq-track span::after{content:"";width:9px;height:9px;background:var(--clay);border-radius:50%}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- section shell ---------- */
+section{position:relative;scroll-margin-top:88px}
+.pad{padding:clamp(80px,11vw,150px) 0}
+.sec-head{display:flex;flex-wrap:wrap;gap:26px 50px;align-items:flex-end;justify-content:space-between;margin-bottom:60px}
+.sec-head p{max-width:430px;margin:0;color:rgba(246,242,231,.62);font-size:17px}
+.light .sec-head p{color:rgba(8,23,15,.66)}
+.light{background:var(--cream);color:var(--ink)}
+.light h2,.light h3{color:var(--ink)}
+
+/* ---------- services ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.svc{
+  position:relative;overflow:hidden;border-radius:var(--radius);
+  padding:36px 34px 34px;min-height:330px;display:flex;flex-direction:column;
+  color:var(--ink);isolation:isolate;
+  transition:transform .55s var(--ease),box-shadow .55s var(--ease);
+}
+.svc:hover{transform:translateY(-8px);box-shadow:0 34px 60px -28px rgba(0,0,0,.6)}
+.svc:nth-child(1){grid-column:span 7;background:var(--green);color:var(--cream)}
+.svc:nth-child(2){grid-column:span 5;background:var(--orange);color:#fff}
+.svc:nth-child(3){grid-column:span 5;background:var(--cream)}
+.svc:nth-child(4){grid-column:span 7;background:var(--amber)}
+.svc:nth-child(4){min-height:360px}
+.svc .num{font-family:var(--f-body);font-size:12px;font-weight:800;letter-spacing:.2em;opacity:.55;margin-bottom:auto}
+.svc h3{margin:26px 0 12px;max-width:16ch}
+.svc p{margin:0;font-size:15.5px;line-height:1.55;opacity:.82;max-width:40ch}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+.tags b{
+  font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:6px 12px;border-radius:100px;background:rgba(0,0,0,.13);
+}
+.svc:nth-child(1) .tags b,.svc:nth-child(2) .tags b{background:rgba(255,255,255,.18)}
+.svc .deco{position:absolute;right:-40px;top:-40px;width:200px;height:200px;opacity:.22;pointer-events:none;transition:transform .8s var(--ease)}
+.svc:hover .deco{transform:rotate(28deg) scale(1.12)}
+
+/* ---------- process ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0;border-top:1px solid rgba(8,23,15,.16)}
+.step{padding:34px 28px 40px;border-bottom:1px solid rgba(8,23,15,.16);border-right:1px solid rgba(8,23,15,.16);position:relative;transition:background .4s}
+.step:last-child{border-right:0}
+.step:hover{background:rgba(31,138,85,.08)}
+.step b{
+  font-family:var(--f-display);font-size:13px;font-weight:800;letter-spacing:.12em;
+  display:inline-block;padding:5px 11px;border-radius:7px;background:var(--ink);color:var(--lime);margin-bottom:26px;
+}
+.step h3{margin-bottom:12px}
+.step p{margin:0;font-size:15px;color:rgba(8,23,15,.68)}
+
+/* ---------- stats band ---------- */
+.band{background:var(--orange);color:#fff;padding:clamp(60px,8vw,96px) 0;position:relative;overflow:hidden}
+.band::before{
+  content:"";position:absolute;inset:0;opacity:.14;
+  background:repeating-linear-gradient(135deg,#000 0 2px,transparent 2px 22px);
+}
+.stat-grid{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:44px 30px}
+.stat b{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(2.9rem,6.6vw,4.9rem);letter-spacing:-.05em;line-height:.9}
+.stat p{margin:12px 0 0;font-size:14px;line-height:1.45;color:rgba(255,255,255,.86);max-width:22ch}
+
+/* ---------- quotes ---------- */
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+.quote{padding:34px 32px;border-radius:var(--radius);background:rgba(246,242,231,.05);box-shadow:inset 0 0 0 1px rgba(246,242,231,.11);display:flex;flex-direction:column}
+.quote .qm{font-family:var(--f-serif);font-size:64px;line-height:.6;color:var(--orange);margin-bottom:18px}
+.quote p{margin:0 0 26px;font-size:18px;line-height:1.5;font-family:var(--f-serif);color:var(--cream)}
+.who{margin-top:auto;display:flex;align-items:center;gap:13px}
+.av{width:42px;height:42px;border-radius:50%;flex:0 0 42px;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:15px;color:var(--ink)}
+.who b{display:block;font-size:14.5px;font-family:var(--f-body);font-weight:700}
+.who span{font-size:12.5px;color:rgba(246,242,231,.55)}
+
+/* ---------- CTA / contact ---------- */
+.cta{background:var(--forest);position:relative;overflow:hidden}
+.cta .blob{opacity:.4}
+.cta-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,80px);align-items:start}
+.form{background:var(--paper);color:var(--ink);border-radius:26px;padding:34px 32px 36px;box-shadow:0 40px 70px -34px rgba(0,0,0,.65)}
+.form h3{margin-bottom:6px}
+.form>p{margin:0 0 24px;font-size:14.5px;color:rgba(8,23,15,.6)}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(8,23,15,.5);margin-bottom:7px}
+.field input,.field select,.field textarea{
+  width:100%;padding:14px 16px;border-radius:13px;font:inherit;font-size:15.5px;
+  border:1.5px solid rgba(8,23,15,.14);background:#fff;color:var(--ink);
+  transition:border-color .3s,box-shadow .3s;
+}
+.field textarea{min-height:104px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--green);box-shadow:0 0 0 4px rgba(31,138,85,.16)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{
+  display:block;padding:9px 15px;border-radius:100px;font-size:13.5px;font-weight:600;
+  border:1.5px solid rgba(8,23,15,.16);cursor:pointer;transition:.28s var(--ease);user-select:none;
+}
+.chip input:checked+span{background:var(--ink);color:var(--lime);border-color:var(--ink)}
+.form .btn{width:100%;justify-content:center;margin-top:8px}
+.note{margin:14px 0 0;font-size:12.5px;color:rgba(8,23,15,.5);text-align:center}
+.contact-list{margin:38px 0 0;padding:0;list-style:none;display:grid;gap:2px}
+.contact-list li{padding:18px 0;border-top:1px solid rgba(246,242,231,.14);display:flex;justify-content:space-between;gap:20px;align-items:baseline;flex-wrap:wrap}
+.contact-list li i{font-style:normal;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,242,231,.45)}
+.contact-list li b{font-family:var(--f-display);font-weight:800;font-size:clamp(1.05rem,2vw,1.4rem);letter-spacing:-.02em}
+.contact-list li b a{transition:color .3s}
+.contact-list li b a:hover{color:var(--lime)}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);padding:70px 0 34px;border-top:1px solid rgba(246,242,231,.1)}
+.f-top{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;margin-bottom:54px}
+.f-cols{display:flex;gap:clamp(36px,7vw,90px);flex-wrap:wrap}
+.f-col h5{margin:0 0 16px;font-size:11.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(246,242,231,.42);font-family:var(--f-body)}
+.f-col a{display:block;font-size:15px;color:rgba(246,242,231,.75);padding:5px 0;transition:color .3s,transform .3s}
+.f-col a:hover{color:var(--lime);transform:translateX(4px)}
+.f-bot{padding-top:26px;border-top:1px solid rgba(246,242,231,.1);display:flex;flex-wrap:wrap;gap:14px 30px;justify-content:space-between;font-size:13px;color:rgba(246,242,231,.45)}
+.wordmark{font-family:var(--f-display);font-weight:800;font-size:clamp(3rem,15vw,11rem);letter-spacing:-.05em;line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(246,242,231,.16);margin:20px 0 34px}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  h1 .line>span{transform:none}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .svc:nth-child(n){grid-column:span 6}
+  .cta-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  nav.links,.nav-cta{display:none}
+  .burger{display:grid}
+  .hero{padding:140px 0 70px}
+  .svc:nth-child(n){grid-column:span 12;min-height:290px}
+  .step{border-right:0}
+  .hero-foot{flex-direction:column;align-items:flex-start}
+  .scroll-hint{display:none}
+  .mini{gap:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header id="hdr">
+  <div class="wrap navbar">
+    <a href="#top" class="logo">
+      <svg class="mark" viewBox="0 0 32 40" aria-hidden="true">
+        <rect x="13.6" y="31" width="4.8" height="8" rx="1.6" fill="#E8451F"/>
+        <path d="M16 1.6 L23.2 13.4 H8.8 Z" fill="#FF5F1F"/>
+        <path d="M16 8.4 L26 22 H6 Z" fill="#FF5F1F"/>
+        <path d="M16 15.8 L29.2 32 H2.8 Z" fill="#FF5F1F"/>
+      </svg>
+      <span class="wm"><b>FORE</b><small>Creative Co.</small></span>
+    </a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">Studio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn nav-cta"><span>Start a project</span></a>
+    <button class="burger" id="burger" aria-label="Open menu"><i></i></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mm">
+  <a href="#services">Services</a>
+  <a href="#process">Process</a>
+  <a href="#about">Studio</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="grid-lines"></div>
+
+  <div class="collage" aria-hidden="true">
+    <div class="tile t1">
+      <svg viewBox="0 0 250 310" width="100%" height="100%"><rect width="250" height="310" fill="#1F8A55"/><circle cx="196" cy="58" r="86" fill="#0E2C1E" opacity=".45"/><rect x="26" y="168" width="150" height="16" rx="8" fill="#F6F2E7" opacity=".9"/><rect x="26" y="194" width="96" height="16" rx="8" fill="#FF5F1F"/><rect x="26" y="42" width="58" height="58" rx="16" fill="#8FD14F"/></svg>
+      <span class="lbl">Web builds</span>
+    </div>
+    <div class="tile t2">
+      <svg viewBox="0 0 196 196" width="100%" height="100%"><rect width="196" height="196" fill="#FF5F1F"/><path d="M0 196 L64 74 L128 196Z" fill="#08170F" opacity=".24"/><path d="M78 196 L142 52 L206 196Z" fill="#F6F2E7" opacity=".55"/></svg>
+      <span class="lbl">Brand</span>
+    </div>
+    <div class="tile t3">
+      <svg viewBox="0 0 168 168" width="100%" height="100%"><rect width="168" height="168" fill="#FFB020"/><g stroke="#08170F" stroke-width="4" fill="none" opacity=".65"><path d="M18 132 L58 92 L92 112 L150 44"/></g><circle cx="58" cy="92" r="8" fill="#E8451F"/><circle cx="150" cy="44" r="8" fill="#1F8A55"/></svg>
+      <span class="lbl">Strategy</span>
+    </div>
+    <div class="tile t4">
+      <svg viewBox="0 0 112 112" width="100%" height="100%"><rect width="112" height="112" fill="#8FD14F"/><circle cx="56" cy="56" r="34" fill="none" stroke="#08170F" stroke-width="4" opacity=".6"/><circle cx="56" cy="56" r="13" fill="#FF5F1F"/></svg>
+      <span class="lbl">Design</span>
+    </div>
+  </div>
+
+  <div class="wrap hero-inner">
+    <div class="badge"><span class="dot"></span> Taking on 4 new partners for Q4</div>
+    <h1>
+      <span class="line"><span>Built to be</span></span>
+      <span class="line"><span><span class="hl">impossible</span></span></span>
+      <span class="line"><span>to ignore.</span></span>
+    </h1>
+    <p class="hero-sub">FORE Creative Co. is a marketing and web development studio. We design the brand, build the site, and run the strategy that fills it — all under one roof, all pointed at revenue.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn"><span>Book a discovery call</span>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#services" class="btn ghost"><span>See what we do</span></a>
+    </div>
+    <div class="hero-foot">
+      <div class="mini">
+        <div><b>10<i>+</i></b><p>Sites built</p></div>
+        <div><b>3<i>yrs</i></b><p>Of craft</p></div>
+      </div>
+      <div class="scroll-hint">Scroll</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="mq-track" id="mq">
+    <span>Web Development</span><span>Brand Identity</span><span>Graphic Design</span><span>Marketing Strategy</span><span>Logo Creation</span><span>Positioning</span>
+    <span>Web Development</span><span>Brand Identity</span><span>Graphic Design</span><span>Marketing Strategy</span><span>Logo Creation</span><span>Positioning</span>
+  </div>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<section class="pad" id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="eyebrow">What we do</span>
+        <h2 style="margin-top:20px">Four disciplines.<br><em class="s">One team.</em></h2>
+      </div>
+      <p>Most companies stitch together a designer, a developer, and an agency who never speak. We do all three, in the same room, with one plan behind it.</p>
+    </div>
+
+    <div class="svc-grid">
+      <article class="svc rv">
+        <svg class="deco" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="12" y="20" width="76" height="56" rx="6"/><path d="M12 34h76M24 27h4M34 27h4"/><path d="M28 48h20M28 58h32"/></svg>
+        <span class="num">01</span>
+        <h3>Website design &amp; development</h3>
+        <p>Custom builds that load fast, look sharp, and convert. Marketing sites, e-commerce, booking flows, and everything wired into your CRM.</p>
+        <div class="tags"><b>Webflow</b><b>WordPress</b><b>Shopify</b><b>Headless</b><b>CRO</b></div>
+      </article>
+
+      <article class="svc rv">
+        <svg class="deco" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="16"/><path d="M50 8v14M50 78v14M8 50h14M78 50h14"/></svg>
+        <span class="num">02</span>
+        <h3>Brand identity</h3>
+        <p>Naming, logo systems, color, type, and the rules that keep it consistent everywhere your name shows up.</p>
+        <div class="tags"><b>Logo systems</b><b>Guidelines</b><b>Naming</b></div>
+      </article>
+
+      <article class="svc rv">
+        <svg class="deco" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 78 78 22M30 22h48v48"/><rect x="14" y="14" width="24" height="24" rx="4"/></svg>
+        <span class="num">03</span>
+        <h3>Graphic design</h3>
+        <p>Print, signage, decks, and social graphics — production-ready files, on brand, on time.</p>
+        <div class="tags"><b>Print</b><b>Signage</b><b>Social</b></div>
+      </article>
+
+      <article class="svc rv">
+        <svg class="deco" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 76h72M22 66V42M40 66V26M58 66V48M76 66V32"/></svg>
+        <span class="num">04</span>
+        <h3>Marketing strategy</h3>
+        <p>Positioning, offer design, channel mix, and a 90-day plan with owners and numbers attached. We build the roadmap, then help you run it.</p>
+        <div class="tags"><b>Positioning</b><b>Funnels</b><b>Analytics</b><b>Reporting</b></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="pad light" id="process">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="eyebrow dark">How it goes</span>
+        <h2 style="margin-top:20px">A process you can <em class="s">actually follow.</em></h2>
+      </div>
+      <p>No black boxes and no surprise invoices. You know what's happening, what it costs, and what it's for.</p>
+    </div>
+    <div class="steps rv">
+      <div class="step"><b>STEP 01</b><h3>Discover</h3><p>A working session on your market, your margins, and what's actually broken. You leave with a written point of view whether or not you hire us.</p></div>
+      <div class="step"><b>STEP 02</b><h3>Design</h3><p>Positioning, identity, and page-by-page design. You see real work in week two, not a mood board in week six.</p></div>
+      <div class="step"><b>STEP 03</b><h3>Build</h3><p>Development, content, integrations, and QA on every screen size. Fixed scope, fixed date.</p></div>
+      <div class="step"><b>STEP 04</b><h3>Grow</h3><p>Launch, then measure. Monthly reporting, test queue, and a roadmap that keeps moving after the site goes live.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="band">
+  <div class="wrap">
+    <div class="stat-grid rv">
+      <div class="stat"><b>10+</b><p>Websites designed, built, and launched</p></div>
+      <div class="stat"><b>3yrs</b><p>Of design and development craft</p></div>
+      <div class="stat"><b>4</b><p>Disciplines under one roof</p></div>
+      <div class="stat"><b>1</b><p>Team, start to finish</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT / QUOTES ================= -->
+<section class="pad" id="about">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="eyebrow">The studio</span>
+        <h2 style="margin-top:20px">Small team.<br><em class="s">Striving for big impact.</em></h2>
+      </div>
+      <p>We are a small team looking to become an integral part of your business' marketing efforts. Your success is our success. We walk through all the highs and lows with you.</p>
+    </div>
+    <div class="quotes">
+      <div class="quote rv">
+        <div class="qm">&ldquo;</div>
+        <p>They rebuilt our site in six weeks and our lead volume doubled by the second month. First agency that actually understood the business.</p>
+        <div class="who"><span class="av" style="background:var(--lime)">JM</span><div><b>J. Marsh</b><span>Owner, Northgate Wash Co.</span></div></div>
+      </div>
+      <div class="quote rv">
+        <div class="qm">&ldquo;</div>
+        <p>The brand work gave us something to point at. Signage, print, and the site finally look like the same company.</p>
+        <div class="who"><span class="av" style="background:var(--orange);color:#fff">DR</span><div><b>D. Reyes</b><span>Founder, Sable &amp; Fern</span></div></div>
+      </div>
+      <div class="quote rv">
+        <div class="qm">&ldquo;</div>
+        <p>Clear scope, clear price, hit the date. That alone put them ahead of the last three firms we tried.</p>
+        <div class="who"><span class="av" style="background:var(--amber)">SK</span><div><b>S. Kowalski</b><span>VP Marketing, Atlas Fabrication</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA / CONTACT ================= -->
+<section class="pad cta" id="contact">
+  <div class="blob b1" style="top:-260px;right:-200px"></div>
+  <div class="blob b2" style="bottom:-220px;left:-160px"></div>
+  <div class="wrap cta-grid">
+    <div class="rv">
+      <span class="eyebrow">Let's talk</span>
+      <h2 style="margin:20px 0 22px">Tell us what<br>you're <em class="s">building.</em></h2>
+      <p style="max-width:44ch;color:rgba(246,242,231,.72);font-size:18px;margin:0">Send a few details and we'll come back within one business day with honest thoughts, a rough range, and next steps. No pitch deck required.</p>
+      <ul class="contact-list">
+        <li><i>Email</i><b><a href="mailto:tyler.earnhart@gmail.com">tyler.earnhart@gmail.com</a></b></li>
+        <li><i>Phone</i><b><a href="tel:+12707922706">(270) 792-2706</a></b></li>
+        <li><i>Studio</i><b>Remote-first · U.S. based</b></li>
+        <li><i>Hours</i><b>Mon–Fri · 8a–5p CT</b></li>
+      </ul>
+    </div>
+
+    <form class="form rv" id="frm" action="https://api.web3forms.com/submit" method="POST">
+      <h3>Start a project</h3>
+      <p>Takes about 60 seconds.</p>
+
+      <!-- Web3Forms endpoint — submissions go to the email verified on this key -->
+      <input type="hidden" name="access_key" value="8dfdb31e-44f3-435f-a457-0ad731358f0c">
+      <input type="hidden" name="subject" value="New project inquiry from goforecreative.com">
+      <input type="hidden" name="from_name" value="FORE Creative Co. website">
+      <!-- spam trap: real people never fill this in -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" aria-hidden="true">
+
+      <div class="field"><label for="n">Your name</label><input id="n" name="name" type="text" placeholder="Alex Carter" required></div>
+      <div class="field"><label for="c">Company</label><input id="c" name="company" type="text" placeholder="Company name"></div>
+      <div class="field"><label for="e">Work email</label><input id="e" name="email" type="email" placeholder="you@company.com" required></div>
+      <div class="field">
+        <label>What do you need?</label>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="svc" value="Website"><span>Website</span></label>
+          <label class="chip"><input type="checkbox" name="svc" value="Branding"><span>Branding</span></label>
+          <label class="chip"><input type="checkbox" name="svc" value="Design"><span>Graphic design</span></label>
+          <label class="chip"><input type="checkbox" name="svc" value="Strategy"><span>Strategy</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="b">Budget range</label>
+        <select id="b" name="budget">
+          <option>$1.5k or less</option><option>$1.5k – $2.5k</option><option>$2.5k – $5k</option><option>$5k+</option><option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field"><label for="m">Project details</label><textarea id="m" name="message" placeholder="What are you trying to fix, launch, or grow?"></textarea></div>
+      <button type="submit" class="btn"><span id="sbt">Send it over</span></button>
+      <p class="note" id="fnote">We'll reply within one business day.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <a href="#top" class="logo">
+          <svg class="mark" viewBox="0 0 32 40" aria-hidden="true">
+            <rect x="13.6" y="31" width="4.8" height="8" rx="1.6" fill="#E8451F"/>
+            <path d="M16 1.6 L23.2 13.4 H8.8 Z" fill="#FF5F1F"/>
+            <path d="M16 8.4 L26 22 H6 Z" fill="#FF5F1F"/>
+            <path d="M16 15.8 L29.2 32 H2.8 Z" fill="#FF5F1F"/>
+          </svg>
+          <span class="wm"><b>FORE</b><small>Creative Co.</small></span>
+        </a>
+        <p style="max-width:32ch;margin:20px 0 0;color:rgba(246,242,231,.58);font-size:15px">Marketing and web development for companies that would rather lead the category than follow it.</p>
+      </div>
+      <div class="f-cols">
+        <div class="f-col"><h5>Services</h5>
+          <a href="#services">Web development</a><a href="#services">Brand identity</a><a href="#services">Graphic design</a><a href="#services">Marketing strategy</a>
+        </div>
+        <div class="f-col"><h5>Studio</h5>
+          <a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a>
+        </div>
+        <div class="f-col"><h5>Elsewhere</h5>
+          <a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">Dribbble</a><a href="#">Newsletter</a>
+        </div>
+      </div>
+    </div>
+    <div class="wordmark" aria-hidden="true">FORE</div>
+    <div class="f-bot">
+      <span>© <span id="yr">2026</span> FORE Creative Co. All rights reserved.</span>
+      <span>Privacy · Terms · Accessibility</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// sticky header
+var hdr=document.getElementById('hdr');
+addEventListener('scroll',function(){hdr.classList.toggle('stuck',scrollY>30)},{passive:true});
+
+// mobile menu
+var mm=document.getElementById('mm'),bg=document.getElementById('burger');
+bg.addEventListener('click',function(){mm.classList.toggle('open')});
+mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.remove('open')})});
+
+// scroll reveal
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+},{threshold:.12,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
+
+// year
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// contact form → Web3Forms (submits in the background, no page reload)
+var frm=document.getElementById('frm'),sbt=document.getElementById('sbt'),fnote=document.getElementById('fnote');
+frm.addEventListener('submit',function(ev){
+  ev.preventDefault();
+  var data=new FormData(frm);
+  // roll the service checkboxes into one readable line
+  var picked=data.getAll('svc');
+  data.delete('svc');
+  data.append('services', picked.length?picked.join(', '):'Not specified');
+  sbt.textContent='Sending…';
+  fnote.textContent='';
+  fetch('https://api.web3forms.com/submit',{method:'POST',body:data})
+    .then(function(r){return r.json()})
+    .then(function(res){
+      if(res.success){
+        sbt.textContent='Got it — talk soon';
+        fnote.textContent="Thanks. We'll reply within one business day.";
+        frm.reset();
+      } else { throw new Error(res.message||'Submit failed') }
+    })
+    .catch(function(){
+      sbt.textContent='Send it over';
+      fnote.innerHTML='Something went wrong. Email <a href="mailto:tyler.earnhart@gmail.com" style="color:inherit;text-decoration:underline">tyler.earnhart@gmail.com</a> instead.';
+    });
+});
+</script>
+</body>
+</html>

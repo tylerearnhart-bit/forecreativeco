@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found — FORE Creative Co.</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:hidden}
+body{
+  margin:0;min-height:100vh;background:#08170F;color:#F6F2E7;
+  font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  display:grid;place-items:center;padding:clamp(24px,6vw,80px);text-align:center;position:relative;overflow:hidden;
+}
+.glow{position:absolute;border-radius:50%;filter:blur(110px);pointer-events:none}
+.g1{width:620px;height:620px;background:#1F8A55;opacity:.5;top:-240px;right:-180px}
+.g2{width:420px;height:420px;background:#FF5F1F;opacity:.3;bottom:-200px;left:-150px}
+.box{position:relative;z-index:2;max-width:560px}
+.mark{width:56px;height:70px;margin:0 auto 34px;display:block}
+h1{
+  font-family:"Bricolage Grotesque",sans-serif;font-weight:800;
+  font-size:clamp(3.4rem,13vw,7rem);letter-spacing:-.05em;line-height:.86;margin:0 0 18px;
+}
+h1 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400}
+p{font-size:clamp(16px,2.2vw,19px);line-height:1.55;color:rgba(246,242,231,.72);margin:0 auto 34px;max-width:38ch}
+a.btn{
+  display:inline-flex;align-items:center;gap:11px;padding:16px 30px;border-radius:100px;
+  background:#FF5F1F;color:#fff;text-decoration:none;font-weight:700;font-size:15px;
+  box-shadow:0 12px 30px -12px rgba(255,95,31,.6);transition:transform .35s cubic-bezier(.19,1,.22,1)
+}
+a.btn:hover{transform:translateY(-3px)}
+.alt{margin-top:26px;font-size:14.5px;color:rgba(246,242,231,.55)}
+.alt a{color:#8FD14F}
+</style>
+</head>
+<body>
+<div class="glow g1"></div><div class="glow g2"></div>
+<div class="box">
+  <svg class="mark" viewBox="0 0 32 40" aria-hidden="true">
+    <rect x="13.6" y="31" width="4.8" height="8" rx="1.6" fill="#E8451F"/>
+    <path d="M16 1.6 L23.2 13.4 H8.8 Z" fill="#FF5F1F"/>
+    <path d="M16 8.4 L26 22 H6 Z" fill="#FF5F1F"/>
+    <path d="M16 15.8 L29.2 32 H2.8 Z" fill="#FF5F1F"/>
+  </svg>
+  <h1>Lost in the <em>woods.</em></h1>
+  <p>That page doesn't exist. Let's get you back to something useful.</p>
+  <a class="btn" href="/">Back to home
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+  <p class="alt">Looking for something specific? Email <a href="mailto:tyler.earnhart@gmail.com">tyler.earnhart@gmail.com</a></p>
+</div>
+</body>
+</html>
