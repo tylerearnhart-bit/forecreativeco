@@ -308,6 +308,37 @@ section{position:relative;scroll-margin-top:88px}
 .who b{display:block;font-size:14.5px;font-family:var(--f-body);font-weight:700}
 .who span{font-size:12.5px;color:rgba(246,242,231,.55)}
 
+/* ---------- portfolio / work ---------- */
+.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(304px,1fr));gap:22px}
+.work{
+  display:flex;flex-direction:column;border-radius:var(--radius);overflow:hidden;
+  background:var(--paper);color:var(--ink);
+  box-shadow:0 2px 0 rgba(8,23,15,.07),0 18px 40px -30px rgba(8,23,15,.5);
+  transition:transform .55s var(--ease),box-shadow .55s var(--ease);
+}
+.work:hover{transform:translateY(-8px);box-shadow:0 34px 60px -30px rgba(8,23,15,.55)}
+.shot{
+  position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--moss);
+  border-bottom:1px solid rgba(8,23,15,.1);
+}
+.shot img,.shot svg{width:100%;height:100%;object-fit:cover;object-position:top center;
+  transition:transform 1s var(--ease)}
+.work:hover .shot img,.work:hover .shot svg{transform:scale(1.045)}
+.shot .live{
+  position:absolute;top:13px;right:13px;z-index:2;display:inline-flex;align-items:center;gap:7px;
+  padding:7px 13px;border-radius:100px;background:rgba(8,23,15,.72);backdrop-filter:blur(8px);
+  font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);
+  opacity:0;transform:translateY(-4px);transition:.4s var(--ease);
+}
+.work:hover .shot .live{opacity:1;transform:none}
+.work-body{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+.work-body h3{font-size:clamp(1.25rem,1.9vw,1.55rem);margin-bottom:9px}
+.work-body>p{margin:0 0 18px;font-size:15px;line-height:1.55;color:rgba(8,23,15,.66)}
+.work .tags{margin-top:auto}
+.work .tags b{background:rgba(8,23,15,.08);color:rgba(8,23,15,.74)}
+.work-foot{margin-top:46px;display:flex;flex-wrap:wrap;gap:16px 26px;align-items:center;justify-content:space-between}
+.work-foot p{margin:0;font-size:15.5px;color:rgba(8,23,15,.62);max-width:46ch}
+
 /* ---------- CTA / contact ---------- */
 .cta{background:var(--forest);position:relative;overflow:hidden}
 .cta .blob{opacity:.4}
@@ -393,6 +424,7 @@ footer{background:var(--ink);padding:70px 0 34px;border-top:1px solid rgba(246,2
     <nav class="links">
       <a href="#services">Services</a>
       <a href="#process">Process</a>
+      <a href="#work">Work</a>
       <a href="#about">Studio</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -404,6 +436,7 @@ footer{background:var(--ink);padding:70px 0 34px;border-top:1px solid rgba(246,2
 <div class="mobile-menu" id="mm">
   <a href="#services">Services</a>
   <a href="#process">Process</a>
+  <a href="#work">Work</a>
   <a href="#about">Studio</a>
   <a href="#contact">Contact</a>
 </div>
@@ -573,6 +606,78 @@ footer{background:var(--ink);padding:70px 0 34px;border-top:1px solid rgba(246,2
   </div>
 </section>
 
+<!-- ================= WORK / PORTFOLIO ================= -->
+<!--
+  HOW TO ADD A PROJECT
+  1. Save a screenshot into the /work folder next to this file.
+     Size it 1600 x 1000 px (16:10), JPG, under 300kb. Capture the top of the homepage.
+  2. Copy a whole <a class="work rv"> ... </a> block below and paste it after the last one.
+  3. In the copy, update: the href, the <img src> and alt, the <h3>, the sentence, the tags.
+  Three cards per row on desktop. Four or more wrap to the next row automatically.
+-->
+<section class="pad light" id="work">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="eyebrow dark">Selected work</span>
+        <h2 style="margin-top:20px">Sites we've <em class="s">shipped.</em></h2>
+      </div>
+      <p>A few of the builds we've launched. Click any one to see it live and running in the wild.</p>
+    </div>
+
+    <div class="work-grid">
+
+      <a class="work rv" href="https://kovinteriors.com" target="_blank" rel="noopener">
+        <div class="shot">
+          <span class="live">View live
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </span>
+          <img src="work/kov-interiors.jpg" alt="KÖV Simply Interiors homepage" loading="lazy" width="1600" height="1000">
+        </div>
+        <div class="work-body">
+          <h3>KÖV Simply Interiors</h3>
+          <p>A Michigan interiors studio running two showrooms and four trades. We built the site around one consultation flow that routes each visitor to the right location.</p>
+          <div class="tags"><b>Web design</b><b>Development</b><b>Content</b></div>
+        </div>
+      </a>
+
+      <a class="work rv" href="https://hudsonheightschurch.com/" target="_blank" rel="noopener">
+        <div class="shot">
+          <span class="live">View live
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </span>
+          <img src="work/hudson-heights.jpg" alt="Hudson Heights Church of Christ homepage" loading="lazy" width="1600" height="1000">
+        </div>
+        <div class="work-body">
+          <h3>Hudson Heights Church</h3>
+          <p>A Union City congregation that needed first-time visitors to find them. Plan-your-visit pages, a Spanish track, and Bible studies people can book themselves.</p>
+          <div class="tags"><b>Web design</b><b>Development</b><b>Bilingual</b></div>
+        </div>
+      </a>
+
+      <a class="work rv" href="https://gohappybuffalo.com" target="_blank" rel="noopener">
+        <div class="shot">
+          <span class="live">View live
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </span>
+          <img src="work/happy-buffalo.jpg" alt="Happy Buffalo launch page" loading="lazy" width="1600" height="1000">
+        </div>
+        <div class="work-body">
+          <h3>Happy Buffalo</h3>
+          <p>A marketing agency that needed a presence before the full site was ready. Launch page up first, with the brand and the main build in progress behind it.</p>
+          <div class="tags"><b>Brand identity</b><b>Web design</b><b>In progress</b></div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="work-foot rv">
+      <p>Want to see something closer to your industry? Ask and we'll send over the ones that fit.</p>
+      <a href="#contact" class="btn dark"><span>Start a project</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- ================= CTA / CONTACT ================= -->
 <section class="pad cta" id="contact">
   <div class="blob b1" style="top:-260px;right:-200px"></div>
@@ -583,10 +688,8 @@ footer{background:var(--ink);padding:70px 0 34px;border-top:1px solid rgba(246,2
       <h2 style="margin:20px 0 22px">Tell us what<br>you're <em class="s">building.</em></h2>
       <p style="max-width:44ch;color:rgba(246,242,231,.72);font-size:18px;margin:0">Send a few details and we'll come back within one business day with honest thoughts, a rough range, and next steps. No pitch deck required.</p>
       <ul class="contact-list">
-        <li><i>Email</i><b><a href="mailto:tyler.earnhart@gmail.com">tyler.earnhart@gmail.com</a></b></li>
         <li><i>Phone</i><b><a href="tel:+12707922706">(270) 792-2706</a></b></li>
         <li><i>Studio</i><b>Remote-first · U.S. based</b></li>
-        <li><i>Hours</i><b>Mon–Fri · 8a–5p CT</b></li>
       </ul>
     </div>
 
@@ -647,10 +750,10 @@ footer{background:var(--ink);padding:70px 0 34px;border-top:1px solid rgba(246,2
           <a href="#services">Web development</a><a href="#services">Brand identity</a><a href="#services">Graphic design</a><a href="#services">Marketing strategy</a>
         </div>
         <div class="f-col"><h5>Studio</h5>
-          <a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a>
+          <a href="#about">About</a><a href="#process">Process</a><a href="#work">Work</a><a href="#contact">Contact</a>
         </div>
         <div class="f-col"><h5>Elsewhere</h5>
-          <a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">Dribbble</a><a href="#">Newsletter</a>
+          <a href="https://www.instagram.com/forecreativecompany/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/company/fore-creative-co/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
     </div>
@@ -703,7 +806,7 @@ frm.addEventListener('submit',function(ev){
     })
     .catch(function(){
       sbt.textContent='Send it over';
-      fnote.innerHTML='Something went wrong. Email <a href="mailto:tyler.earnhart@gmail.com" style="color:inherit;text-decoration:underline">tyler.earnhart@gmail.com</a> instead.';
+      fnote.innerHTML='Something went wrong. Call or text <a href="tel:+12707922706" style="color:inherit;text-decoration:underline">(270) 792-2706</a> instead.';
     });
 });
 </script>
